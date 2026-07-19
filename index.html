@@ -1,10 +1,11 @@
 <!doctype html>
-<html lang="zh-CN">
+<html lang="zh-CN" data-theme="dark">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="description" content="薄健寅的个人简历与作品集：8 年移动端开发经验，专注 Flutter、Android 与跨平台应用。">
-<meta name="theme-color" content="#f2efe8">
+<meta name="theme-color" content="#121513">
+<script>try{if(localStorage.getItem('theme')==='light')document.documentElement.dataset.theme='light'}catch(e){}</script>
 <meta property="og:title" content="薄健寅｜Flutter / Android 开发工程师">
 <meta property="og:description" content="8 年移动端开发经验，专注 Flutter、Android、React Native 与高质量应用交付。">
 <meta property="og:type" content="website">
@@ -113,7 +114,7 @@
 </main>
 </div>
 <script>
-const root=document.documentElement,theme=document.getElementById('theme'),saved=localStorage.getItem('theme');if(saved==='dark'||(!saved&&matchMedia('(prefers-color-scheme:dark)').matches))root.dataset.theme='dark';theme.onclick=()=>{root.dataset.theme=root.dataset.theme==='dark'?'light':'dark';localStorage.setItem('theme',root.dataset.theme)};document.getElementById('year').textContent=new Date().getFullYear();
+const root=document.documentElement,theme=document.getElementById('theme'),saved=localStorage.getItem('theme');root.dataset.theme=saved==='light'?'light':'dark';theme.onclick=()=>{root.dataset.theme=root.dataset.theme==='dark'?'light':'dark';localStorage.setItem('theme',root.dataset.theme)};document.getElementById('year').textContent=new Date().getFullYear();
 const wordsByLang={zh_CN:['Flutter 开发','Android 开发','跨平台交付','AI 协作开发'],en_US:['Flutter Development','Android Development','Cross-platform Delivery','AI-assisted Development']};let words=wordsByLang[localStorage.getItem('locale')||'zh_CN'],wi=0,ci=0,del=false;const typed=document.getElementById('typed');function type(){const w=words[wi];typed.textContent=del?w.slice(0,--ci):w.slice(0,++ci);if(!del&&ci===w.length){del=true;setTimeout(type,1200);return}if(del&&ci===0){del=false;wi=(wi+1)%words.length}setTimeout(type,del?55:95)}setTimeout(type,700);
 const reveals=document.querySelectorAll('.reveal');const ro=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');ro.unobserve(e.target)}}),{threshold:.01,rootMargin:'0px 0px 12% 0px'});reveals.forEach((el,index)=>{el.style.setProperty('--reveal-order',index);const rect=el.getBoundingClientRect();if(rect.top<innerHeight*1.12&&rect.bottom>0)el.classList.add('visible');else ro.observe(el)});
 const counters=document.querySelectorAll('[data-count]');const co=new IntersectionObserver(entries=>entries.forEach(e=>{if(!e.isIntersecting)return;const el=e.target,end=+el.dataset.count,start=performance.now(),dur=1200;function tick(now){const p=Math.min((now-start)/dur,1);el.textContent=Math.floor(end*(1-Math.pow(1-p,3)))+(end===100?'':'');if(p<1)requestAnimationFrame(tick)}requestAnimationFrame(tick);co.unobserve(el)}),{threshold:.6});counters.forEach(el=>co.observe(el));
